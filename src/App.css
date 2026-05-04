@@ -23,6 +23,7 @@
   margin: 0 auto;
   padding: 20px;
   overflow: hidden;
+  min-height: 0;
 }
 
 /* ═══════════════════════════════════════ */
@@ -32,10 +33,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 24px;
+  gap: 20px;
   overflow-y: auto;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .home-header {
@@ -215,9 +217,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  overflow: hidden;
+  gap: 14px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 16px;
+  min-height: 0;
 }
 
 .question-card {
@@ -368,9 +372,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  overflow: hidden;
+  gap: 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 16px;
+  min-height: 0;
 }
 
 .statement-card {
@@ -699,8 +705,8 @@
   border: 1px dashed rgba(255, 255, 255, 0.08);
   cursor: pointer;
   transition: all 0.3s;
-  margin-top: -8px;
   align-self: center;
+  flex-shrink: 0;
 }
 
 .easter-egg-btn:hover {
@@ -710,24 +716,17 @@
 }
 
 .roast-toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 400px;
-  width: calc(100% - 40px);
-  padding: 16px 20px;
+  padding: 14px 18px;
   border-radius: var(--radius-lg);
   background: rgba(245, 158, 11, 0.12);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(245, 158, 11, 0.25);
   color: #fbbf24;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-align: center;
   line-height: 1.5;
-  z-index: 100;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════ */
@@ -735,92 +734,110 @@
 /* ═══════════════════════════════════════ */
 @media (max-width: 480px) {
   .app-inner {
-    padding: 14px;
+    padding: 12px;
   }
 
   .home {
-    gap: 16px;
-    justify-content: flex-start;
-    padding-top: 10px;
+    gap: 14px;
+    padding-top: 6px;
+  }
+
+  .home-header {
+    margin-bottom: 4px;
   }
 
   .home-header h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .home-header p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   .mode-card {
-    padding: 16px;
+    padding: 14px;
   }
 
   .mode-card-top {
     gap: 10px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .mode-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .mode-card-top h3 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .mode-card-top span {
+    font-size: 0.7rem;
   }
 
   .mode-card p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
   }
 
   /* Quiz */
   .question-card {
-    padding: 20px;
+    padding: 16px;
+  }
+
+  .question-number {
+    font-size: 0.65rem;
+    margin-bottom: 10px;
   }
 
   .question-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .choices-grid {
+    gap: 8px;
   }
 
   .choice-btn {
-    padding: 12px 14px;
-    font-size: 0.85rem;
-    gap: 10px;
+    padding: 11px 12px;
+    font-size: 0.82rem;
+    gap: 8px;
   }
 
   .choice-letter {
-    width: 24px;
-    height: 24px;
-    font-size: 0.7rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.65rem;
+    border-radius: 6px;
   }
 
   .explanation-toast {
-    padding: 12px 14px;
+    padding: 10px 12px;
   }
 
   .explanation-toast p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   .next-btn {
-    padding: 10px 20px;
-    font-size: 0.85rem;
+    padding: 10px 18px;
+    font-size: 0.82rem;
   }
 
   /* Vrai Faux */
   .statement-card {
-    padding: 22px;
-    min-height: 140px;
+    padding: 18px;
+    min-height: 120px;
   }
 
   .statement-text {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .vf-btn {
-    padding: 14px;
-    font-size: 0.95rem;
+    padding: 14px 10px;
+    font-size: 0.9rem;
   }
 
   /* Match */
@@ -830,8 +847,8 @@
   }
 
   .set-btn {
-    padding: 6px 12px;
-    font-size: 0.7rem;
+    padding: 6px 10px;
+    font-size: 0.68rem;
   }
 
   .match-columns {
@@ -839,31 +856,36 @@
   }
 
   .match-item {
-    padding: 10px 8px;
-    font-size: 0.75rem;
+    padding: 9px 7px;
+    font-size: 0.72rem;
   }
 
   .match-item.def {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
   }
 
   /* Results */
+  .results {
+    gap: 14px;
+    padding-bottom: 30px;
+  }
+
   .results-icon {
-    width: 64px;
-    height: 64px;
-    font-size: 2rem;
+    width: 56px;
+    height: 56px;
+    font-size: 1.8rem;
   }
 
   .results h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .results-score {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .results-subtitle {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
 
   .review-card {
@@ -871,33 +893,56 @@
   }
 
   .review-question {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   .review-explanation {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
   .results-buttons {
     flex-direction: column;
   }
 
-  /* Score pill */
+  /* Score pill & topbar */
+  .game-topbar {
+    margin-bottom: 10px;
+  }
+
   .score-pill {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    padding: 5px 10px;
+    font-size: 0.75rem;
   }
 
   .back-btn {
-    padding: 6px 10px;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+  }
+
+  .streak-badge {
+    padding: 3px 8px;
+    font-size: 0.68rem;
+  }
+
+  .progress-bar-track {
+    margin-bottom: 12px;
+  }
+
+  .roast-toast {
     font-size: 0.8rem;
+    padding: 12px 14px;
+  }
+
+  .easter-egg-btn {
+    font-size: 0.7rem;
+    padding: 8px 14px;
   }
 }
 
 /* Safe area for iPhones with notch */
 @supports (padding-top: env(safe-area-inset-top)) {
   .app-inner {
-    padding-top: calc(14px + env(safe-area-inset-top));
-    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+    padding-top: calc(12px + env(safe-area-inset-top));
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
   }
 }
